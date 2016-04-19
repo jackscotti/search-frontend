@@ -2,7 +2,7 @@ class SearchResultsController < ApplicationController
   before_action :set_search_result, only: [:show]
 
   def index
-    @search_results = SearchResult.all
+    @search_results = JSON.parse(Faraday.get('https://www.gov.uk/api/search.json?q=car+tow').body)['results']
   end
 
   def show
@@ -10,10 +10,9 @@ class SearchResultsController < ApplicationController
 
 private
   def set_search_result
-    @search_result = SearchResult.find(params[:id])
   end
 
   def search_result_params
-    params.fetch(:search_result, {})
+    params.fetch(:terms, {})
   end
 end
