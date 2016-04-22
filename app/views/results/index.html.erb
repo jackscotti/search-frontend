@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Search Results</h1>
+<h1>Listing Results</h1>
 
 <table>
   <thead>
@@ -10,10 +10,10 @@
   </thead>
 
   <tbody>
-    <% @search_results.each do |search_result| %>
+    <% @results.each do |result| %>
       <tr>
-        <td><%= search_result %></td>
-        <td><%= link_to 'Show', search_result %></td>
+        <td><%= result %></td>
+        <td><%= link_to 'Show', result %></td>
       </tr>
     <% end %>
   </tbody>
