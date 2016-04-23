@@ -1,0 +1,14 @@
+<% content_for :title, "#{@search_term} - Search - GOV.UK" %>
+<form action="/search" method="get">
+  <%= render 'search_field' %>
+</form>
+
+<% if @results %>
+  <h1>Results: <%= @results.count %></h1>
+  </br>
+  <ul>
+    <% @results.each do |r| %>
+      <li><%= r %></li>
+    <% end %>
+  </ul>
+<% end %>

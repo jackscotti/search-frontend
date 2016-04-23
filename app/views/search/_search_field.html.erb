@@ -1,0 +1,16 @@
+<fieldset class="search-input">
+  <label for="search-main">
+    <%- if @search_term.present? -%>
+      <h1>Search results for <%= @search_term %></h1>
+    <%- else -%>
+      <h1>Search GOV.UK</h1>
+    <%- end -%>
+  </label>
+
+  <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
+
+</fieldset>
+
+<fieldset class="search-submit">
+  <button type="submit" class="button">Search</button>
+</fieldset>
