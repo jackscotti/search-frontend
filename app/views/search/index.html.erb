@@ -7,7 +7,7 @@
   <h1>Results: <%= @results.count %></h1>
   <ul>
     <% @results.each do |r| %>
-      <li><%= r %></li>
+      <li><a href="<%= r["link"]%>"><%= r["title"] %></a></li>
     <% end %>
   </ul>
 <% end %>
