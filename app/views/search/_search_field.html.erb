@@ -1,5 +1,5 @@
-<fieldset class="search-input">
-  <label for="search-main">
+<fieldset>
+  <label>
     <%- if @search_term.present? -%>
       <h1>Search results for <%= @search_term %></h1>
     <%- else -%>
@@ -7,10 +7,10 @@
     <%- end -%>
   </label>
 
-  <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
+  <input name="q" value="<%= @search_term %>"/>
 
 </fieldset>
 
-<fieldset class="search-submit">
+<fieldset>
   <button type="submit" class="button">Search</button>
 </fieldset>
