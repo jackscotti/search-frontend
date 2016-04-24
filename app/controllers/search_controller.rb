@@ -9,6 +9,15 @@ class SearchController < ApplicationController
     end
   end
 
+  def show
+    path = params["path"]
+    @result = Faraday.get('https://www.gov.uk/api/content/' + path)
+    if @result.status == 404
+      flash[:notice] = 'No results for your query. Try again.'
+      redirect_to "/"
+    end
+  end
+
 
   def present(results)
     results = results['results']

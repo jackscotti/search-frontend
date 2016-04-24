@@ -1,4 +1,8 @@
 <% content_for :title, "#{@search_term} - Search - GOV.UK" %>
+<% if flash[:notice] %>
+  <p class="flash-notice"><%= flash[:notice] %></p>
+<% end %>
+
 <form action="/search" method="get">
   <%= render 'search_field' %>
 </form>
