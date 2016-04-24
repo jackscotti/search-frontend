@@ -28,7 +28,7 @@ class SearchController < ApplicationController
   def present_for_index(results)
     results = results['results']
     results.map do |result|
-      result["link"] = "https://www.gov.uk" + result["link"]
+      result["link"] = "/search" + result["link"]
       result.select{|k,v| ["title", "link"].include?(k)}
     end
   end
