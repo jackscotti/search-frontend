@@ -7,7 +7,7 @@ gem 'faraday', '~> 0.9.2'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.3'
-  # add RSpec
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 end
 
 group :development do
