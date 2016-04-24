@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SearchController do
-  context "present" do
+  context "#present_for_index" do
     let(:result_1) {{
         "title" => "title 1",
         "description" => "description 1",
@@ -22,7 +22,7 @@ RSpec.describe SearchController do
     it "selects title and paths" do
       controller = SearchController.new
 
-      expect(controller.present(results)).to eq([
+      expect(controller.present_for_index(results)).to eq([
         {
           "title" => result_1["title"],
           "link" => result_1["link"],
@@ -32,6 +32,25 @@ RSpec.describe SearchController do
           "link" => result_2["link"],
         }
       ])
+    end
+  end
+
+  context "#present_for_show" do
+    let(:result) {{
+        "title" => "title 1",
+        "description" => "description 1",
+        "link" => "gov/something-1",
+    }}
+
+    it "selects title and description" do
+      controller = SearchController.new
+
+      expect(controller.present_for_show(result)).to eq(
+        {
+          "title" => result["title"],
+          "description" => result["description"],
+        },
+      )
     end
   end
 end
